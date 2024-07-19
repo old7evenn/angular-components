@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { SearchItemComponent } from '../search-item/search-item.component';
 import dataRespanse from '../../../../data/response.json';
 import { Card } from '../../../../data/interfaces/card.interface';

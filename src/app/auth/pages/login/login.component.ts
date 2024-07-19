@@ -14,5 +14,5 @@ export class LoginComponent {
   login() {
     this.authService.login()    
   }
-  value: string = ''
+  value = ''
 }
