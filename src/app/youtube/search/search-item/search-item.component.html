@@ -1,0 +1,17 @@
+<div *ngIf="card" class="flex flex-col mx-auto pt-5 px-5 w-[16.438rem] h-[23rem] rounded-md bg-colorgrey shadow-[0px_3px_5px_rgba(0,0,0,0.3)] relative overflow-hidden">
+  <img [src]="card.snippet.thumbnails.medium.url" alt="photo" class="h-[123px] w-[223px]"/>
+  <ul class="flex gap-4 justify-center my-5">
+    <li class="flex justify-center items-center gap-1"><img src="assets/icons/viewed.svg" alt="viewed"><p>{{card.statistics.viewCount | shortenNumber}}</p></li>
+    <li class="flex justify-center items-center gap-1"><img src="assets/icons/liked.svg" alt="liked"><p>{{card.statistics.likeCount | shortenNumber}}</p></li>
+    <li class="flex justify-center items-center gap-1"><img src="assets/icons/dislike.svg" alt="dislike"><p>{{card.statistics.dislikeCount | shortenNumber}}</p></li> 
+    <li class="flex justify-center items-center gap-1"><img src="assets/icons/saved.svg" alt="saved"><p>{{card.statistics.commentCount | shortenNumber}}</p></li> 
+  </ul>
+  <p class="text-center text-colorgray font-bold text-[20px] truncate">
+   {{card.snippet.title}}
+  </p>
+  <div class="mx-auto mt-8">
+    <button class="bg-backgroundBlue px-6 py-[6.4px] rounded-md text-white shadow-blue-shadow">more...</button>
+  </div>
+    <div class="absolute right-0 bottom-0 h-[5px] w-full" [ngStyle]="{'background-color': getBorderColor(card.snippet.publishedAt)}"></div>
+</div>
+

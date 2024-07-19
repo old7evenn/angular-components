@@ -1,0 +1,19 @@
+<div class="flex items-center gap-2 max-w-[1140px]">
+  <img src="assets/icons/logo.svg" alt="logo">
+  <div class="flex items-center">
+    <input
+      id="search" 
+      type="text" 
+      placeholder="What do you want to find out?"
+      class="px-3 py-1 w-96 border-transparent focus:outline-none text-xs"
+      aria-label="search"
+      [(ngModel)]="searchQuery"
+      name="search"
+      (keydown.enter)="search()"
+    >
+    <button (click)="search()" class="px-6 py-1 bg-backgroundBlue rounded-tr-sm rounded-br-sm text-white text-xs shadow-blue-shadow">search</button>
+  </div>
+  <div class="flex justify-center items-center bg-backgroundBlue p-1 rounded-md shadow-blue-shadow">
+    <img src="assets/icons/setting.svg" alt="setting">
+  </div>
+</div>
