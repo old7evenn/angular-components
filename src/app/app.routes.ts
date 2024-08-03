@@ -1,8 +1,9 @@
 import { Routes } from '@angular/router';
 import { SearchResultsComponent } from './youtube/search/search-results/search-results.component';
 import { NotFoundComponent } from './not-found/not-found.component';
-import { LoginComponent } from './auth/pages/login/login.component';
 import { AuthGuard } from './auth/guards/auth.guard';
+import { AuthComponent } from './auth/pages/auth/auth.component';
+import { DetailedComponent } from './detailed-information/detailed.component';
 
 export const routes: Routes = [
   {
@@ -13,14 +14,20 @@ export const routes: Routes = [
   {
     path: 'home',
     component: SearchResultsComponent,
-    canActivate: [AuthGuard]
+    canActivate: [AuthGuard],
   },
   {
     path: 'auth',
-    component: LoginComponent,
+    component: AuthComponent,
+  },
+  {
+    path: 'detail/:id',
+    component: DetailedComponent,
+    canActivate: [AuthGuard],
   },
   {
     path: '**',
     component: NotFoundComponent,
+    canActivate: [AuthGuard],
   },
 ];

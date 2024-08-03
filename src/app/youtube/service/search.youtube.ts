@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
-import { Card } from '@/data/interfaces/card.interface';
+import { Card } from '@/app/service/interfaces/card.interface';
 
 @Injectable({
   providedIn: 'root',
@@ -11,5 +11,13 @@ export class SearchService {
 
   updataSearchResults(searchResults: Card[]): void {
     this.searchResultsSource.next(searchResults);
+  }
+
+  search(query: string, originalResults: Card[]): void {
+    if (!query) {
+      this.updataSearchResults([...originalResults]);
+      return
+    }
+    this.updataSearchResults(originalResults.filter((item) => item.snippet.title.toLowerCase().includes(query.toLowerCase())));
   }
 }

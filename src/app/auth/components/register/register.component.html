@@ -1,0 +1,36 @@
+<form 
+    [formGroup]="userData"
+    (ngSubmit)="onSubmit()" 
+    class="w-full"
+  >
+    <h1 class="text-[18px] font-bold mb-3">Registration</h1>
+    <div class="flex flex-col gap-1"> 
+      <label for="firstName" class="text-grayText">First Name</label>
+      <div class="relative">
+        <input id="firstName" type="text" formControlName="firstName" required class="bg-grayDark focus:outline-none px-2 py-1 w-full" />
+        <div class="text-red absolute h-1 w-full bg-red rounded-b-[4px]" *ngIf="userData.controls['firstName'].invalid && (userData.controls['firstName'].dirty || userData.controls['email'].touched)"></div>
+      </div>
+
+      <label for="lastName" class="text-grayText">Last Name</label>
+      <div class="relative">
+        <input id="lastName" type="text" formControlName="lastName" required class="bg-grayDark focus:outline-none px-2 py-1 w-full" />
+        <div class="text-red absolute h-1 w-full bg-red rounded-b-[4px]" *ngIf="userData.controls['lastName'].invalid && (userData.controls['lastName'].dirty || userData.controls['email'].touched)"></div>
+      </div>
+
+      <label for="email" class="text-grayText">mail</label>
+      <div class="relative">
+        <input id="email" type="text" formControlName="email" required class="bg-grayDark focus:outline-none px-2 py-1 w-full" />
+        <div class="text-red absolute h-1 w-full bg-red rounded-b-[4px]" *ngIf="userData.controls['email'].invalid && (userData.controls['email'].dirty || userData.controls['email'].touched)"></div>
+      </div>
+      
+      <label for="password" class="text-grayText">password</label>
+      <div class="relative">
+        <input id="password" type="password" formControlName="password" required class="bg-grayDark focus:outline-none px-2 py-[6.5px] w-full" />
+        <div class="text-red absolute h-1 w-full bg-red rounded-b-[4px]" *ngIf="userData.controls['password'].invalid && (userData.controls['password'].dirty || userData.controls['password'].touched)"></div>
+      </div>
+    </div>
+    <div class="flex gap-4 mt-5 justify-end">
+      <button class="px-6 py-[6.4px] rounded-md text-backgroundBlue underline cursor-pointer" (click)="switchTab ? switchTab('login') : null">Login</button>
+    <button class="bg-backgroundBlue px-6 py-[6.4px] rounded-md text-white shadow-blue-shadow" type="submit">Registration</button>
+  </div>
+</form>

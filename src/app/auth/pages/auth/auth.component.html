@@ -1,0 +1,8 @@
+<div class="flex justify-center mt-12 bg-gray w-[21.875rem] mx-auto rounded px-5 py-6">
+  <div *ngIf="selectedTab === 'login'" >
+    <app-login [switchTab]="switchTab"></app-login>
+  </div>
+  <div *ngIf="selectedTab === 'register'">
+    <app-register [switchTab]="switchTab"></app-register>
+  </div>
+</div>

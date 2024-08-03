@@ -1,3 +1,4 @@
-<main class="max-w-[1200px] grid grid-cols-4 gap-7 mx-auto my-7">
-  <app-search-item *ngFor="let result of (searchResult && searchResult.length > 0 ? searchResult : data)" [card]="result"></app-search-item>
-</main>
+<div class="grid grid-cols-4 gap-7">
+  <app-search-item *ngFor="let result of data()" [card]="result"></app-search-item>
+</div>
+

@@ -7,12 +7,13 @@ module.exports = {
         backgroundBlue: "#2F80ED",
         colorgrey: "#E5E5E5",
         colorgray: "#4F4F4F",
-        red: "ff0000",
+        red: "#ff0000",
         yellow: "#FFD700",
         blue: "#0000FF",
         green: "#008000",
         gray: "#F2F2F2",
         grayDark: "#E0E0E0",
+        grayText: "#828282",
       },
       boxShadow: {
         "blue-shadow": "2px 1px 8px 2px rgba(0,100,255,0.3)",
@@ -20,6 +21,19 @@ module.exports = {
       },
     },
   },
-  plugins: [],
+  plugins: [
+    function ({ addComponents }) {
+      addComponents({
+        ".text-clamp-13": {
+          overflow: "hidden",
+          textOverflow: "ellipsis",
+          display: "-webkit-box",
+          WebkitLineClamp: "13",
+          WebkitBoxOrient: "vertical",
+          margin: "0",
+        },
+      });
+    },
+  ],
 };
 

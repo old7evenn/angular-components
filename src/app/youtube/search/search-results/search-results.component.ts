@@ -1,9 +1,9 @@
-import { Component } from '@angular/core';
+import { Component, signal } from '@angular/core';
 import { SearchItemComponent } from '../search-item/search-item.component';
-import dataRespanse from '../../../../data/response.json';
-import { Card } from '../../../../data/interfaces/card.interface';
+import { Card } from '../../../service/interfaces/card.interface';
 import { SearchService } from '../../service/search.youtube';
 import { CommonModule } from '@angular/common';
+import { YoutubeService } from '@app/service/youtube.service';
 
 @Component({
   selector: 'app-search-results',
@@ -12,13 +12,24 @@ import { CommonModule } from '@angular/common';
   standalone: true,
 })
 export class SearchResultsComponent {
-  searchResult: Card[] = []
-  data: Card[] = dataRespanse.items 
-  constructor(private searchService: SearchService) {
+  data = signal<Card[]>([]);
+
+  constructor(
+    private searchService: SearchService,
+    private youtubeService: YoutubeService
+  ) {
+    this.loadVideos();
     this.searchService.$searchResults.subscribe((results) => {
-      this.searchResult = results;
-      console.log(this.searchResult);
-      
-    })
+      this.data.set(results);
+    });
+  }
+
+  async loadVideos() {
+    try {
+      const videos = await this.youtubeService.getVideos();
+      this.data.set(videos);
+    } catch (error) {
+      console.error('Error fetching videos:', error);
+    }
   }
 }

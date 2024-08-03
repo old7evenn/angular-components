@@ -1,12 +1,17 @@
-import { Component } from '@angular/core';
+import { Component, signal } from '@angular/core';
 import { SearchComponent } from '../../youtube/search/search.component';
+import { AuthService } from '@app/auth/services/auth.service';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-header',
   standalone: true,
-  imports: [SearchComponent],
+  imports: [SearchComponent, CommonModule],
   templateUrl: './header.component.html',
 })
 export class HeaderComponent {
-  title = 'angular_components'
+
+  currentUser = signal(this.authService.getCurrentUser()());
+  constructor(private authService: AuthService) {}
+
 }

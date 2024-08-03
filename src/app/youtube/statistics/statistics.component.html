@@ -1,0 +1,5 @@
+<ul *ngIf="card" class="flex gap-4 justify-center my-5">
+  <li class="flex justify-center items-center gap-1"><img src="assets/icons/viewed.svg" alt="viewed"><p>{{card.statistics.viewCount | shortenNumber}}</p></li>
+  <li class="flex justify-center items-center gap-1"><img src="assets/icons/liked.svg" alt="liked"><p>{{card.statistics.likeCount | shortenNumber}}</p></li>
+  <li class="flex justify-center items-center gap-1"><img src="assets/icons/saved.svg" alt="saved"><p>{{card.statistics.commentCount | shortenNumber}}</p></li> 
+</ul>

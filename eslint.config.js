@@ -14,6 +14,7 @@ module.exports = tseslint.config(
     ],
     processor: angular.processInlineTemplates,
     rules: {
+      "@angular-eslint/use-lifecycle-interface": "off",
       "@angular-eslint/directive-selector": [
         "error",
         {
